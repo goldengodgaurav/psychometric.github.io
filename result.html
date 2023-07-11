@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      #background {
+      background-image: url("gandhi.jpg");
+      background-size: 70% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      opacity: 0.2;
+      position: fixed;
+      top: 0;
+      left: 200;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-position: center;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 50px auto;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      li {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      li:last-of-type {
+        border-bottom: none;
+      }
+      p {
+    font-size: 18px;
+    line-height: 1.3;
+    color: rgb(0, 0, 0);
+    margin: 0 0 20px;
+    text-align: justify;
+    
+  }
+
+      span {
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      button {
+        display: block;
+        margin: 50px auto;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+      table,tr,td{
+    border: 1px solid black;
+    text-align:center;
+  }
+      
+    </style>
+</head>
+<body>
+  <div id="background"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <div class="container"> 
+  <h1>Scores Page</h1>
+  <p>Respected</p>
+  <p><span id="firstname"></span><span id="middlename"></span><span id="lastname"></span></p>
+  <p>Your Scores are:</p>
+</div>
+  <ul>
+    <li>Realistic: <span id="realistic-score"></span></li>
+    <li>Investigative: <span id="investigative-score"></span></li>
+    <li>Artistic: <span id="artistic-score"></span></li>
+    <li>Social: <span id="social-score"></span></li>
+    <li>Enterprising: <span id="enterprising-score"></span></li>
+    <li>Conventional: <span id="conventional-score"></span></li>
+  </ul>
+  <div class="container">
+  <h1>Top 3 Career Scores</h1>
+  <p>1. <span id="top-score1"></span></p>
+  <p>2. <span id="top-score2"></span></p>
+  <p>3. <span id="top-score3"></span></p>
+  </div>
+  <section>
+    <div class="container">
+    <p>Dear<span id="firstname"></span> Your Personality,Career interest and Related vocational courses are listed below</p>
+    </div>
+  </section>
+  <section>
+
+<div id="top-score-section" class="container"></div>
+</body>
+</section>
+ <button onclick="generatePdf()">Download PDF</button>
+
+  <script>
+    const realisticScore = localStorage.getItem('realisticScore');
+    const investigativeScore = localStorage.getItem('investigativeScore');
+    const artisticScore = localStorage.getItem('artisticScore');
+    const socialScore = localStorage.getItem('socialScore');
+    const enterprisingScore = localStorage.getItem('enterprisingScore');
+    const conventionalScore = localStorage.getItem('conventionalScore');
+
+    const scores = [
+      { name: 'Realistic', score: realisticScore },
+      { name: 'Investigative', score: investigativeScore },
+      { name: 'Artistic', score: artisticScore },
+      { name: 'Social', score: socialScore },
+      { name: 'Enterprising', score: enterprisingScore },
+      { name: 'Conventional', score: conventionalScore }
+    ];
+    document.getElementById('realistic-score').textContent = realisticScore;
+ document.getElementById('investigative-score').textContent = investigativeScore;
+ document.getElementById('artistic-score').textContent = artisticScore;
+ document.getElementById('social-score').textContent = socialScore;
+ document.getElementById('enterprising-score').textContent = enterprisingScore;
+ document.getElementById('conventional-score').textContent = conventionalScore;
+  // Sort scores in descending order based on score
+  scores.sort((a, b) => b.score - a.score);
+
+  // Display top 3 scores
+      // Display top 3 scores
+      document.getElementById('top-score1').textContent = scores[0].name + ': ' + scores[0].score;
+      document.getElementById('top-score2').textContent = scores[1].name + ': ' + scores[1].score;
+      document.getElementById('top-score3').textContent = scores[2].name + ': ' + scores[2].score;  
+      window.jsPDF = window.jspdf.jsPDF;
+      window.jsPDF = window.jspdf.jsPDF;
+
+      function generatePdf() {
+  html2canvas(document.getElementById('top-score-section')).then(canvas => {
+    // Convert the canvas to an image
+    const imgData = canvas.toDataURL('image/png');
+
+    // Create a new jsPDF instance
+    const doc = new jsPDF();
+    // Add a page border
+doc.setLineWidth(0.5);
+doc.rect(10, 10, doc.internal.pageSize.getWidth() - 20, doc.internal.pageSize.getHeight() - 20);
+
+// Set the font, size, and color of the text
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(14);
+doc.setTextColor(0, 0, 255);
+
+    // Add some text to the first page
+    doc.text('Dear',10,20);
+    doc.text('Your personality, Potential Career Interest and ',10,30);
+    doc.text('suggested Vocational courses are as below',10,40);
+    const firstName = document.getElementById('firstname').textContent;
+    doc.text(firstName, 50, 20);
+    doc.text('Top 3 Scores:', 150, 20);
+    doc.text(scores[0].name + ': ' + scores[0].score, 150, 30);
+    doc.text(scores[1].name + ': ' + scores[1].score, 150, 40);
+    doc.text(scores[2].name + ': ' + scores[2].score, 150, 50);
+
+    // Calculate the number of pages needed to fit the entire image
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const imgHeight = canvas.height * 100 / canvas.width;
+    const numPages = Math.ceil(imgHeight / pageHeight);
+
+    // Add the image to the PDF, split across multiple pages
+    for (let i = 0; i < numPages; i++) {
+      if (i > 0) {
+        doc.addPage();
+      }
+      doc.addImage(
+        imgData,
+        'PNG',
+        30,
+        -i * pageHeight + 50,
+        120,
+        imgHeight
+      );
+    }
+
+    // Save the PDF and trigger a download
+    doc.save('top-scores.pdf');
+  });
+}
+    // Save names of top 3 scores in an array
+    const top3scorename = [scores[0].name, scores[1].name, scores[2].name];
+
+// Fetch appropriate section based on top 3 scores
+top3scorename.forEach((scoreName) => {
+    if (scoreName === 'Realistic') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#realistic').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+    else if (scoreName === 'Investigative') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#investigative').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+    else if (scoreName === 'Artistic') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#artistic').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+    else if (scoreName === 'Social') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#social').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+    else if (scoreName === 'Enterprising') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#enterprising').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+    else if (scoreName === 'Conventional') {
+        fetch('abouttest.html')
+        .then(response => response.text())
+        .then(html => {
+          const section = document.createElement('section');
+          section.innerHTML = new DOMParser().parseFromString(html, 'text/html').querySelector('#conventional').innerHTML;
+          document.getElementById('top-score-section').appendChild(section);
+        });
+    }
+  });
+  
+
+  </script>
+  
+
+
+
+</body>
+</html>

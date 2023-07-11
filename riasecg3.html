@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+        <p>Q16 અન્ય લોકો પ્રત્યે માયાળુ બનવું અને જરૂરિયાતમંદ લોકોને મદદ કરવી જેમ કે ગરીબ, અપંગ, વૃદ્ધ, બીમાર, ઓછી સેવા, વગેરે.</p>
+		<label><input type="radio" name="q16" value="1">નાપસંદ</label>
+		<label><input type="radio" name="q16" value="2">થોડી નાપસંદ</label>
+		<label><input type="radio" name="q16" value="3">ન પસંદ કે નાપસંદ</label>
+		<label><input type="radio" name="q16" value="4">થોડી આનંદ</label>
+		<label><input type="radio" name="q16" value="5">આનંદ</label>
+        <br>
+        
+        
+            <p>Q17 કોઈકની અથવા કોઈ વસ્તુ માટે રાહ જોવી</p>
+            <label><input type="radio" name="q17" value="1">નાપસંદ</label>
+            <label><input type="radio" name="q17" value="2">થોડી નાપસંદ</label>
+            <label><input type="radio" name="q17" value="3">ન પસંદ કે નાપસંદ</label>
+            <label><input type="radio" name="q17" value="4">થોડી આનંદ</label>
+            <label><input type="radio" name="q17" value="5">આનંદ</label>
+            <br>
+            
+        
+                <p>Q18 મારા જેવી અન્યની લાગણીઓ અને સમસ્યાઓ સાથે સંબંધિત થવું</p>
+                <label><input type="radio" name="q18" value="1">નાપસંદ</label>
+                <label><input type="radio" name="q18" value="2">થોડી નાપસંદ</label>
+                <label><input type="radio" name="q18" value="3">ન પસંદ કે નાપસંદ</label>
+                <label><input type="radio" name="q18" value="4">થોડી આનંદ</label>
+                <label><input type="radio" name="q18" value="5">આનંદ</label>    
+                <br>
+                
+        
+                    <p>Q19 નિર્ભરતા સાથે એક ટીમ તરીકે અન્ય લોકો સાથે સુમેળમાં કામ કરવું</p>
+                    <label><input type="radio" name="q19" value="1">નાપસંદ</label>
+                    <label><input type="radio" name="q19" value="2">થોડી નાપસંદ</label>
+                    <label><input type="radio" name="q19" value="3">ન પસંદ કે નાપસંદ</label>
+                    <label><input type="radio" name="q19" value="4">થોડી આનંદ</label>
+                    <label><input type="radio" name="q19" value="5">આનંદ</label>    
+                    <br>
+                    
+       
+                        <p>Q20 મને નુકસાન પહોંચાડનારા લોકોને માફ કરવા</p>
+                            <label><input type="radio" name="q20" value="1">નાપસંદ</label>
+                            <label><input type="radio" name="q20" value="2">થોડી નાપસંદ</label>
+                            <label><input type="radio" name="q20" value="3">ન પસંદ કે નાપસંદ</label>
+                            <label><input type="radio" name="q20" value="4">થોડી આનંદ</label>
+                            <label><input type="radio" name="q20" value="5">આનંદ</label>
+                            <br>
+
+                            <button type="submit">Submit</button>
+                            <!--<p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>-->
+                            <script>
+                              const form = document.querySelector('form');
+                              form.addEventListener('submit', function(event) {
+                              event.preventDefault(); // prevent the form from submitting normally
+
+  // get the values of the selected radio buttons
+  const q16 = parseInt(document.querySelector('input[name="q16"]:checked').value);
+  const q17 = parseInt(document.querySelector('input[name="q17"]:checked').value);
+  const q18 = parseInt(document.querySelector('input[name="q18"]:checked').value);
+  const q19 = parseInt(document.querySelector('input[name="q19"]:checked').value);
+  const q20 = parseInt(document.querySelector('input[name="q20"]:checked').value);
+
+  // calculate the total score
+  const socialScore = q16 + q17 + q18 + q19 + q20;
+
+  // store the total score in local storage
+  localStorage.setItem('socialScore', socialScore);
+  const realisticScore = localStorage.getItem('realisticScore');
+  const investigativeScore = localStorage.getItem('investigativeScore');
+  const artisticScore = localStorage.getItem('artisticScore');
+
+  // redirect to the next page
+  window.location.href = 'riasecg4.html';
+  
+
+  // update the HTML elements with the scores
+ // document.getElementById('realistic-score').textContent = realisticScore;
+ // document.getElementById('investigative-score').textContent = investigativeScore;
+                              });
+                              
+                            </script>
+                    </div>
+        </form>
+        
+
+                                
+
+                            
+        

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+        <p>Q21 બીજાઓ સાથે સમાજીકરણ</p>
+		<label><input type="radio" name="q21" value="1">નાપસંદ</label>
+		<label><input type="radio" name="q21" value="2">થોડી નાપસંદ</label>
+		<label><input type="radio" name="q21" value="3">ન પસંદ કે નાપસંદ</label>
+		<label><input type="radio" name="q21" value="4">થોડી આનંદ</label>
+		<label><input type="radio" name="q21" value="5">આનંદ</label>
+        <br>
+        
+        
+            <p>Q22  જોખમ લેવું</p>
+            <label><input type="radio" name="q22" value="1">નાપસંદ</label>
+            <label><input type="radio" name="q22" value="2">થોડી નાપસંદ</label>
+            <label><input type="radio" name="q22" value="3">ન પસંદ કે નાપસંદ</label>
+            <label><input type="radio" name="q22" value="4">થોડી આનંદ</label>
+            <label><input type="radio" name="q22" value="5">આનંદ</label>
+            <br>
+            
+        
+                <p>Q23 ઉત્સાહી બનવું</p>
+                <label><input type="radio" name="q23" value="1">નાપસંદ</label>
+                <label><input type="radio" name="q23" value="2">થોડી નાપસંદ</label>
+                <label><input type="radio" name="q23" value="3">ન પસંદ કે નાપસંદ</label>
+                <label><input type="radio" name="q23" value="4">થોડી આનંદ</label>
+                <label><input type="radio" name="q23" value="5">આનંદ</label>    
+                <br>
+                
+        
+                    <p>Q24 કલ્પના કરવી કે બધું જ મારી તરફેણમાં જશે</p>
+                    <label><input type="radio" name="q24" value="1">નાપસંદ</label>
+                    <label><input type="radio" name="q24" value="2">થોડી નાપસંદ</label>
+                    <label><input type="radio" name="q24" value="3">ન પસંદ કે નાપસંદ</label>
+                    <label><input type="radio" name="q24" value="4">થોડી આનંદ</label>
+                    <label><input type="radio" name="q24" value="5">આનંદ</label>    
+                    <br>
+                    
+       
+                        <p>Q25 લોકોને ખાતરી આપવી </p>
+                            <label><input type="radio" name="q25" value="1">નાપસંદ</label>
+                            <label><input type="radio" name="q25" value="2">થોડી નાપસંદ</label>
+                            <label><input type="radio" name="q25" value="3">ન પસંદ કે નાપસંદ</label>
+                            <label><input type="radio" name="q25" value="4">થોડી આનંદ</label>
+                            <label><input type="radio" name="q25" value="5">આનંદ</label>
+                            <br>
+
+                            <button type="submit">Submit</button>
+                            <!--<p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>-->
+                            <script>
+                              const form = document.querySelector('form');
+                              form.addEventListener('submit', function(event) {
+                              event.preventDefault(); // prevent the form from submitting normally
+
+  // get the values of the selected radio buttons
+  const q21 = parseInt(document.querySelector('input[name="q21"]:checked').value);
+  const q22 = parseInt(document.querySelector('input[name="q22"]:checked').value);
+  const q23 = parseInt(document.querySelector('input[name="q23"]:checked').value);
+  const q24 = parseInt(document.querySelector('input[name="q24"]:checked').value);
+  const q25 = parseInt(document.querySelector('input[name="q25"]:checked').value);
+
+  // calculate the total score
+  const enterprisingScore = q21 + q22 + q23 + q24 + q25;
+
+  // store the total score in local storage
+  localStorage.setItem('enterprisingScore', enterprisingScore);
+  const realisticScore = localStorage.getItem('realisticScore');
+  const investigativeScore = localStorage.getItem('investigativeScore');
+  const artisticScore = localStorage.getItem('artisticScore');
+  const socialScore = localStorage.getItem('socialScore');
+
+  // redirect to the next page
+  window.location.href = 'riasecg5.html';
+  
+
+  // update the HTML elements with the scores
+ // document.getElementById('realistic-score').textContent = realisticScore;
+ // document.getElementById('investigative-score').textContent = investigativeScore;
+                              });
+                              
+                            </script>
+                            </div>
+        </form>
+        
+
+                                
+
+                            
+        

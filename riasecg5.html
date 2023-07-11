@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.2/pdfmake.min.js"></script>
+  </head>
+  <body>
+    <div>
+    <form>
+      
+        <p>Q26 મનથી કામ કરવું, ચોક્કસ ગણતરીઓ કરવી </p>
+		<label><input type="radio" name="q26" value="1">નાપસંદ</label>
+		<label><input type="radio" name="q26" value="2">થોડી નાપસંદ</label>
+		<label><input type="radio" name="q26" value="3">ન પસંદ કે નાપસંદ</label>
+		<label><input type="radio" name="q26" value="4">થોડી આનંદ</label>
+		<label><input type="radio" name="q26" value="5">આનંદ</label>
+        <br>
+        
+        
+            <p>Q27 ચોક્કસ, પદ્ધતિસરની અને વિગતલક્ષી હોવું</p>
+            <label><input type="radio" name="q27" value="1">નાપસંદ</label>
+            <label><input type="radio" name="q27" value="2">થોડી નાપસંદ</label>
+            <label><input type="radio" name="q27" value="3">ન પસંદ કે નાપસંદ</label>
+            <label><input type="radio" name="q27" value="4">થોડી આનંદ</label>
+            <label><input type="radio" name="q27" value="5">આનંદ</label>
+            <br>
+            
+        
+                <p>Q28 નિયમોનું પાલન કરવું</p>
+                <label><input type="radio" name="q28" value="1">નાપસંદ</label>
+                <label><input type="radio" name="q28" value="2">થોડી નાપસંદ</label>
+                <label><input type="radio" name="q28" value="3">ન પસંદ કે નાપસંદ</label>
+                <label><input type="radio" name="q28" value="4">થોડી આનંદ</label>
+                <label><input type="radio" name="q28" value="5">આનંદ</label>    
+                <br>
+                
+        
+                    <p>Q29 સખત મહેનત અને નિષ્ઠાપૂર્વક કામ કરવું</p>
+                    <label><input type="radio" name="q29" value="1">નાપસંદ</label>
+                    <label><input type="radio" name="q29" value="2">થોડી નાપસંદ</label>
+                    <label><input type="radio" name="q29" value="3">ન પસંદ કે નાપસંદ</label>
+                    <label><input type="radio" name="q29" value="4">થોડી આનંદ</label>
+                    <label><input type="radio" name="q29" value="5">આનંદ</label>    
+                    <br>
+                    
+       
+                        <p>Q30 અન્ય લોકો પ્રત્યે વિનમ્રતા દાખવવી</p>
+                            <label><input type="radio" name="q30" value="1">નાપસંદ</label>
+                            <label><input type="radio" name="q30" value="2">થોડી નાપસંદ</label>
+                            <label><input type="radio" name="q30" value="3">ન પસંદ કે નાપસંદ</label>
+                            <label><input type="radio" name="q30" value="4">થોડી આનંદ</label>
+                            <label><input type="radio" name="q30" value="5">આનંદ</label>
+                            <br>
+
+                            <button type="submit" onclick="submitQuiz()">Submit</button>
+                            <p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>
+                            <p>Artistic Score: <span id="artistic-score"></span></p>
+                            <p>Social Score: <span id="social-score"></span></p>
+                            <p>Enterprising Score: <span id="enterprising-score"></span></p>
+                            <p>Conventional Score: <span id="conventional-score"></span></p>
+                            <script>
+                              const form = document.querySelector('form');
+                              form.addEventListener('submit', function(event) {
+                              event.preventDefault(); // prevent the form from submitting normally
+
+  // get the values of the selected radio buttons
+  const q26 = parseInt(document.querySelector('input[name="q26"]:checked').value);
+  const q27 = parseInt(document.querySelector('input[name="q27"]:checked').value);
+  const q28 = parseInt(document.querySelector('input[name="q28"]:checked').value);
+  const q29 = parseInt(document.querySelector('input[name="q29"]:checked').value);
+  const q30 = parseInt(document.querySelector('input[name="q30"]:checked').value);
+
+  // calculate the total score
+  const conventionalScore = q26 + q27 + q28 + q29 + q30;
+
+  // store the total score in local storage
+  localStorage.setItem('conventionalScore', conventionalScore);
+  const realisticScore = localStorage.getItem('realisticScore');
+  const investigativeScore = localStorage.getItem('investigativeScore');
+  const artisticScore = localStorage.getItem('artisticScore');
+  const socialScore = localStorage.getItem('socialScore');
+  const enterprisingScore = localStorage.getItem('enterprisingScore');
+  // redirect to the next page
+  window.location.href = 'result.html';
+  
+
+  // update the HTML elements with the scores
+ document.getElementById('realistic-score').textContent = realisticScore;
+ document.getElementById('investigative-score').textContent = investigativeScore;
+ document.getElementById('artistic-score').textContent = artisticScore;
+ document.getElementById('social-score').textContent = socialScore;
+ document.getElementById('enterprising-score').textContent = enterprisingScore;
+ document.getElementById('conventional-score').textContent = conventionalScore;
+                              });
+                              
+                            </script>
+                            </div>
+        </form>
+        
+
+                                
+
+                            
+        

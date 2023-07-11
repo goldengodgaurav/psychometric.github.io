@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-gu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+        <p>Q1 મારા હાથ અને શરીર વાપરીને વાસ્તવિક વસ્તુઓ બનાવું</p>
+		<label><input type="radio" name="q1" value="1">નાપસંદ</label>
+		<label><input type="radio" name="q1" value="2">થોડી નાપસંદ</label>
+		<label><input type="radio" name="q1" value="3">ન પસંદ કે નાપસંદ</label>
+		<label><input type="radio" name="q1" value="4">થોડી આનંદ</label>
+		<label><input type="radio" name="q1" value="5">આનંદ</label>
+        <br>
+        
+        
+            <p>Q2 ઉપયોગી સાધન કે ઉપકરણ સાથે કામ કરવું:</p>
+            <label><input type="radio" name="q2" value="1">નાપસંદ</label>
+            <label><input type="radio" name="q2" value="2">થોડી નાપસંદ</label>
+            <label><input type="radio" name="q2" value="3">ન પસંદ કે નાપસંદ</label>
+            <label><input type="radio" name="q2" value="4">થોડી આનંદ</label>
+            <label><input type="radio" name="q2" value="5">આનંદ</label>
+            <br>
+            
+        
+                <p>Q3 પૂર્ણતઃ મહત્વના લક્ષ્ય સુધી કામ કરવું</p>
+                <label><input type="radio" name="q3" value="1">નાપસંદ</label>
+                <label><input type="radio" name="q3" value="2">થોડી નાપસંદ</label>
+                <label><input type="radio" name="q3" value="3">ન પસંદ કે નાપસંદ</label>
+                <label><input type="radio" name="q3" value="4">થોડી આનંદ</label>
+                <label><input type="radio" name="q3" value="5">આનંદ</label>    
+                <br>
+                
+        
+                    <p>Q4 ઘરની બહાર પશુઓ, કાચરા, પાણી, વૃક્ષો, ધાતુ વગેરે સાથે કામ કરવું</p>
+                    <label><input type="radio" name="q4" value="1">નાપસંદ</label>
+                    <label><input type="radio" name="q4" value="2">થોડી નાપસંદ</label>
+                    <label><input type="radio" name="q4" value="3">ન પસંદ કે નાપસંદ</label>
+                    <label><input type="radio" name="q4" value="4">થોડી આનંદ</label>
+                    <label><input type="radio" name="q4" value="5">આનંદ</label>    
+                    <br>
+                    
+       
+                        <p>Q5 પદ્ધતિપૂર્વક હોવું - પગલે-પગલે પ્રક્રિયા અનુસરી</p>
+                            <label><input type="radio" name="q5" value="1">નાપસંદ</label>
+                            <label><input type="radio" name="q5" value="2">થોડી નાપસંદ</label>
+                            <label><input type="radio" name="q5" value="3">ન પસંદ કે નાપસંદ</label>
+                            <label><input type="radio" name="q5" value="4">થોડી આનંદ</label>
+                            <label><input type="radio" name="q5" value="5">આનંદ</label>
+<br>
+                            <button type="submit">Submit</button>
+                            <script>
+                              const form = document.querySelector('form');
+                              
+                              form.addEventListener('submit', function(event) {
+                                event.preventDefault(); // prevent the form from submitting normally
+                                
+                                // get the values of the selected radio buttons
+                                const q1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
+                                const q2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
+                                const q3 = parseInt(document.querySelector('input[name="q3"]:checked').value);
+                                const q4 = parseInt(document.querySelector('input[name="q4"]:checked').value);
+                                const q5 = parseInt(document.querySelector('input[name="q5"]:checked').value);
+                                
+                                // calculate the total score
+                                const realisticScore = q1 + q2 + q3 + q4 + q5;
+                                
+                                // store the total score in local storage
+                                localStorage.setItem('realisticScore', realisticScore);
+                                
+                                // redirect to the next page
+                                window.location.href = 'riasecg1.html';
+                              });
+                            </script>
+        </form>
+      </div>
+        

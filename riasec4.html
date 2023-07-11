@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+        <p>Q21 Socializing with others</p>
+		<label><input type="radio" name="q21" value="1">Dislike</label>
+		<label><input type="radio" name="q21" value="2">Slightly Dislike</label>
+		<label><input type="radio" name="q21" value="3">Neither like nor dislike</label>
+		<label><input type="radio" name="q21" value="4">Slightly Enjoy</label>
+		<label><input type="radio" name="q21" value="5">Enjoy</label>
+        <br>
+        
+        
+            <p>Q22 Taking risks</p>
+            <label><input type="radio" name="q22" value="1">Dislike</label>
+            <label><input type="radio" name="q22" value="2">Slightly Dislike</label>
+            <label><input type="radio" name="q22" value="3">Neither like nor dislike</label>
+            <label><input type="radio" name="q22" value="4">Slightly Enjoy</label>
+            <label><input type="radio" name="q22" value="5">Enjoy</label>
+            <br>
+            
+        
+                <p>Q23 Being enthusiastic</p>
+                <label><input type="radio" name="q23" value="1">Dislike</label>
+                <label><input type="radio" name="q23" value="2">Slightly Dislike</label>
+                <label><input type="radio" name="q23" value="3">Neither like nor dislike</label>
+                <label><input type="radio" name="q23" value="4">Slightly Enjoy</label>
+                <label><input type="radio" name="q23" value="5">Enjoy</label>    
+                <br>
+                
+        
+                    <p>Q24 Imagining everything will go in my favour</p>
+                    <label><input type="radio" name="q24" value="1">Dislike</label>
+                    <label><input type="radio" name="q24" value="2">Slightly Dislike</label>
+                    <label><input type="radio" name="q24" value="3">Neither like nor dislike</label>
+                    <label><input type="radio" name="q24" value="4">Slightly Enjoy</label>
+                    <label><input type="radio" name="q24" value="5">Enjoy</label>    
+                    <br>
+                    
+       
+                        <p>Q25 Convincing people </p>
+                            <label><input type="radio" name="q25" value="1">Dislike</label>
+                            <label><input type="radio" name="q25" value="2">Slightly Dislike</label>
+                            <label><input type="radio" name="q25" value="3">Neither like nor dislike</label>
+                            <label><input type="radio" name="q25" value="4">Slightly Enjoy</label>
+                            <label><input type="radio" name="q25" value="5">Enjoy</label>
+                            <br>
+
+                            <button type="submit">Submit</button>
+                            <!--<p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>-->
+                            <script>
+                              const form = document.querySelector('form');
+                              form.addEventListener('submit', function(event) {
+                              event.preventDefault(); // prevent the form from submitting normally
+
+  // get the values of the selected radio buttons
+  const q21 = parseInt(document.querySelector('input[name="q21"]:checked').value);
+  const q22 = parseInt(document.querySelector('input[name="q22"]:checked').value);
+  const q23 = parseInt(document.querySelector('input[name="q23"]:checked').value);
+  const q24 = parseInt(document.querySelector('input[name="q24"]:checked').value);
+  const q25 = parseInt(document.querySelector('input[name="q25"]:checked').value);
+
+  // calculate the total score
+  const enterprisingScore = q21 + q22 + q23 + q24 + q25;
+
+  // store the total score in local storage
+  localStorage.setItem('enterprisingScore', enterprisingScore);
+  const realisticScore = localStorage.getItem('realisticScore');
+  const investigativeScore = localStorage.getItem('investigativeScore');
+  const artisticScore = localStorage.getItem('artisticScore');
+  const socialScore = localStorage.getItem('socialScore');
+
+  // redirect to the next page
+  window.location.href = 'riasec5.html';
+  
+
+  // update the HTML elements with the scores
+ // document.getElementById('realistic-score').textContent = realisticScore;
+ // document.getElementById('investigative-score').textContent = investigativeScore;
+                              });
+                              
+                            </script>
+                            </div>
+        </form>
+        
+
+                                
+
+                            
+        

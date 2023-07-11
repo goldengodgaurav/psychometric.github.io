@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<style>
+		form {
+			margin: 20px auto;
+			max-width: 500px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-family: Arial, sans-serif;
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		
+		input[type=text], input[type=date], select , input[type=number]{
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+		}
+		
+		input[type=button] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		
+		input[type=button]:hover {
+			background-color: #45a049;
+		}
+	</style>
+	
+</head>
+<body>
+	<form action="connect.php" method="post" id="myForm">
+		<label for="firstname">Name:</label>
+		<input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+		
+		<label for="middlename">Middle Name:</label>
+		<input type="text" id="middlename" name="middlename" placeholder="Enter your middle name">
+		
+		<label for="lastname">Surname:</label>
+		<input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+		
+		<label for="dob">Date of Birth:</label>
+		<input type="date" id="dob" name="dob" required>
+		
+		<label for="education">Education:</label>
+		<select id="education" name="education" required>
+			<option value="">Select your education level</option>
+			<option value="High school">High school</option>
+			<option value="Bachelor's degree">Bachelor's degree</option>
+			<option value="Master's degree">Master's degree</option>
+			<option value="Doctoral degree">Doctoral degree</option>
+		</select>
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender" requred>
+			<option value="">Select your gender</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+
+		</select>
+		
+		<label for="district">District:</label>
+		<input type="text" id="district" name="district" placeholder="Enter your district" required>
+		
+		<label for="state">State:</label>
+		<input type="text" id="state" name="state" placeholder="Enter your state" required>
+
+		<label for="contact">Contact No: </label>
+		<input type="number" id="contact" name="contact" placeholder="Enter your mobile no" min="9"required>
+
+		<label for="email">Email ID </label>
+		<input type="text" id="email" name="email" placeholder="Enter your Email ID" required>
+
+		
+		<input type="submit" value="submit form">
+	</form>
+
+
+</body>
+</html>
+

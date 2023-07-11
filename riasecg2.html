@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+      
+        <p>Q11 મારી કલ્પનાનો ઉપયોગ</p>
+		<label><input type="radio" name="q11" value="1">નાપસંદ</label>
+		<label><input type="radio" name="q11" value="2">થોડી નાપસંદ</label>
+		<label><input type="radio" name="q11" value="3">ન પસંદ કે નાપસંદ</label>
+		<label><input type="radio" name="q11" value="4">થોડી આનંદ</label>
+		<label><input type="radio" name="q11" value="5">આનંદ</label>
+        <br>
+        
+        
+            <p>Q2 ચાતુર્યથી વિચારવું</p>
+            <label><input type="radio" name="q12" value="1">નાપસંદ</label>
+            <label><input type="radio" name="q12" value="2">થોડી નાપસંદ</label>
+            <label><input type="radio" name="q12" value="3">ન પસંદ કે નાપસંદ</label>
+            <label><input type="radio" name="q12" value="4">થોડી આનંદ</label>
+            <label><input type="radio" name="q12" value="5">આનંદ</label>
+            <br>
+            
+        
+                <p>Q3 લાગણીશીલ બનવું</p>
+                <label><input type="radio" name="q13" value="1">નાપસંદ</label>
+                <label><input type="radio" name="q13" value="2">થોડી નાપસંદ</label>
+                <label><input type="radio" name="q13" value="3">ન પસંદ કે નાપસંદ</label>
+                <label><input type="radio" name="q13" value="4">થોડી આનંદ</label>
+                <label><input type="radio" name="q13" value="5">આનંદ</label>    
+                <br>
+                
+        
+                    <p>Q4 અભિવ્યક્ત હોવું</p>
+                    <label><input type="radio" name="q14" value="1">નાપસંદ</label>
+                    <label><input type="radio" name="q14" value="2">થોડી નાપસંદ</label>
+                    <label><input type="radio" name="q14" value="3">ન પસંદ કે નાપસંદ</label>
+                    <label><input type="radio" name="q14" value="4">થોડી આનંદ</label>
+                    <label><input type="radio" name="q14" value="5">આનંદ</label>    
+                    <br>
+                    
+       
+                        <p>Q5 બહાદુર અને સાહસિક બનવું</p>
+                            <label><input type="radio" name="q15" value="1">નાપસંદ</label>
+                            <label><input type="radio" name="q15" value="2">થોડી નાપસંદ</label>
+                            <label><input type="radio" name="q15" value="3">ન પસંદ કે નાપસંદ</label>
+                            <label><input type="radio" name="q15" value="4">થોડી આનંદ</label>
+                            <label><input type="radio" name="q15" value="5">આનંદ</label>
+                            <br>
+
+                            <button type="submit">Submit</button>
+                            <!--<p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>
+                            <p>Artistic Score: <span id="artistic-score"></span></p>-->
+                            <script>
+                              const form = document.querySelector('form');
+                              
+                              form.addEventListener('submit', function(event) {
+                                event.preventDefault(); // prevent the form from submitting normally
+                                
+                                // get the values of the selected radio buttons
+                                const q11 = parseInt(document.querySelector('input[name="q11"]:checked').value);
+                                const q12 = parseInt(document.querySelector('input[name="q12"]:checked').value);
+                                const q13 = parseInt(document.querySelector('input[name="q13"]:checked').value);
+                                const q14 = parseInt(document.querySelector('input[name="q14"]:checked').value);
+                                const q15 = parseInt(document.querySelector('input[name="q15"]:checked').value);
+                                
+                                // calculate the total score
+                                const artisticScore = q11 + q12 + q13 + q14 + q15;
+                                
+                                // store the total score in local storage
+                                localStorage.setItem('artisticScore', artisticScore);
+                                const investigativeScore = localStorage.getItem('investigativeScore');
+                                const realisticScore = localStorage.getItem('realisticScore');
+
+                                // update the HTML elements with the scores
+
+                                //document.getElementById('realistic-score').textContent = realisticScore;
+                                //document.getElementById('investigative-score').textContent = investigativeScore;
+                                //document.getElementById('artistic-score').textContent = artisticScore;
+                                
+                                // redirect to the next page
+                                window.location.href = 'riasecg3.html';
+                              });
+                            </script>
+                            </div>
+        </form>
+        

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIASEC</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      
+        <p>Q6 Being suspicious (doubting what appears)</p>
+		<label><input type="radio" name="q6" value="1">Dislike</label>
+		<label><input type="radio" name="q6" value="2">Slightly Dislike</label>
+		<label><input type="radio" name="q6" value="3">Neither like nor dislike</label>
+		<label><input type="radio" name="q6" value="4">Slightly Enjoy</label>
+		<label><input type="radio" name="q6" value="5">Enjoy</label>
+        <br>
+        
+        
+            <p>Q7 Analysing a situation or thing for its pros and cons:</p>
+            <label><input type="radio" name="q7" value="1">Dislike</label>
+            <label><input type="radio" name="q7" value="2">Slightly Dislike</label>
+            <label><input type="radio" name="q7" value="3">Neither like nor dislike</label>
+            <label><input type="radio" name="q7" value="4">Slightly Enjoy</label>
+            <label><input type="radio" name="q7" value="5">Enjoy</label>
+            <br>
+            
+        
+                <p>Q8 Making rational decisions</p>
+                <label><input type="radio" name="q8" value="1">Dislike</label>
+                <label><input type="radio" name="q8" value="2">Slightly Dislike</label>
+                <label><input type="radio" name="q8" value="3">Neither like nor dislike</label>
+                <label><input type="radio" name="q8" value="4">Slightly Enjoy</label>
+                <label><input type="radio" name="q8" value="5">Enjoy</label>    
+                <br>
+                
+        
+                    <p>Q9 Being curious</p>
+                    <label><input type="radio" name="q9" value="1">Dislike</label>
+                    <label><input type="radio" name="q9" value="2">Slightly Dislike</label>
+                    <label><input type="radio" name="q9" value="3">Neither like nor dislike</label>
+                    <label><input type="radio" name="q9" value="4">Slightly Enjoy</label>
+                    <label><input type="radio" name="q9" value="5">Enjoy</label>    
+                    <br>
+                    
+       
+                        <p>Q10 Noticing things and events around me</p>
+                            <label><input type="radio" name="q10" value="1">Dislike</label>
+                            <label><input type="radio" name="q10" value="2">Slightly Dislike</label>
+                            <label><input type="radio" name="q10" value="3">Neither like nor dislike</label>
+                            <label><input type="radio" name="q10" value="4">Slightly Enjoy</label>
+                            <label><input type="radio" name="q10" value="5">Enjoy</label>
+                            <br>
+                            <button type="submit">Submit</button>
+                            
+                            <!--<p>Realistic Score: <span id="realistic-score"></span></p>
+                            <p>Investigative Score: <span id="investigative-score"></span></p>-->
+                            <script>
+                              const form = document.querySelector('form');
+                              form.addEventListener('submit', function(event) {
+                              event.preventDefault(); // prevent the form from submitting normally
+
+  // get the values of the selected radio buttons
+  const q6 = parseInt(document.querySelector('input[name="q6"]:checked').value);
+  const q7 = parseInt(document.querySelector('input[name="q7"]:checked').value);
+  const q8 = parseInt(document.querySelector('input[name="q8"]:checked').value);
+  const q9 = parseInt(document.querySelector('input[name="q9"]:checked').value);
+  const q10 = parseInt(document.querySelector('input[name="q10"]:checked').value);
+
+  // calculate the total score
+  const investigativeScore = q6 + q7 + q8 + q9 + q10;
+
+  // store the total score in local storage
+  localStorage.setItem('investigativeScore', investigativeScore);
+  const realisticScore = localStorage.getItem('realisticScore');
+
+  // redirect to the next page
+  window.location.href = 'riasec2.html';
+  
+
+  // update the HTML elements with the scores
+ // document.getElementById('realistic-score').textContent = realisticScore;
+ // document.getElementById('investigative-score').textContent = investigativeScore;
+                              });
+                              
+                            </script>
+                            </div>
+        </form>
+        
+
+                                
+
+                            
+        
